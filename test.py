@@ -68,48 +68,6 @@ ideal24 = [[1, 2, 3, 4, 5],
            [16, 17, 18, 19, 20],
            [21, 22, 23, 24, 0]]
 
-ideal35 = [[1, 2, 3, 4, 5, 6],
-           [7, 8, 9, 10, 11, 12],
-           [13, 14, 15, 16, 17, 18],
-           [19, 20, 21, 22, 23, 24],
-           [25, 26, 27, 28, 29, 30],
-           [31, 32, 33, 34, 35, 0]]
-
-subideal35 = [[1, 2, 3, 4, 5, 6],
-              [7, 8, 9, 10, 11, 12],
-              [13, 14, 15, 16, 17, 18],
-              [19, 20, 21, 22, 23, 0],
-              [25, 26, 27, 28, 29, 24],
-              [31, 32, 33, 34, 35, 30]]
-
-
-puzzle35 = [[6, 12, 18, 24, 30, 35],
-            [5, 8, 9, 10, 11, 34],
-            [4, 14, 15, 16, 17, 33],
-            [3, 20, 21, 22, 23, 32],
-            [2, 26, 27, 28, 29, 31],
-            [1, 7, 13, 19, 25, 0]]
-
-ideal48 = [[1, 2, 3, 4, 5, 6, 7],
-           [8, 9, 10, 11, 12, 13, 14],
-           [15, 16, 17, 18, 19, 20, 21],
-           [22, 23, 24, 25, 26, 27, 28],
-           [29, 30, 31, 32, 33, 34, 35],
-           [36, 37, 38, 39, 40, 41, 42],
-           [43, 44, 45, 46, 47, 48, 0]]
-
-
-def IsSolvable(matrix, goal):
-    matrixArray = [j for i in matrix for j in i]
-    goalArray = [j for i in goal for j in i]
-    matrixInversions = sum(True for i in range(len(matrixArray))
-                           for j in range(i+1, len(matrixArray)) if matrixArray[j] != 0 and
-                           matrixArray[i] != 0 and matrixArray[i] > matrixArray[j])
-    goalInversions = sum(True for i in range(len(goalArray)) for j
-                         in range(i+1, len(goalArray)) if goalArray[j] != 0 and goalArray[i] != 0
-                         and goalArray[i] > goalArray[j])
-    return (matrixInversions % 2 == goalInversions % 2)
-
 
 def main():
     with cProfile.Profile() as pr:
