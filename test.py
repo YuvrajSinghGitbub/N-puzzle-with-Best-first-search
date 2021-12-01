@@ -71,7 +71,7 @@ ideal24 = [[1, 2, 3, 4, 5],
 
 def main():
     with cProfile.Profile() as pr:
-        new_puzzle = EightPuzzle(puzzle35, ideal35)
+        new_puzzle = EightPuzzle(puzzle24, ideal24)
         new_puzzle.best_first_search()
 
         for move in new_puzzle.give_path():
