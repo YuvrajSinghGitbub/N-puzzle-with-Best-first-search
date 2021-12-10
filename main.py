@@ -79,13 +79,7 @@ class EightPuzzle:
         while not self.open_list.empty():
             new_board: list[list] = self.open_list.get()[1]
 
-            # print(*new_board, sep="\n")
-            # print("=" * 30)
-
             if new_board == self._goal_state:
-                # print("goal reached----->")
-                # print(*new_board, sep="\n")
-                # print("\n")
                 return
 
             children, children_heuristic = self.get_children(new_board)
